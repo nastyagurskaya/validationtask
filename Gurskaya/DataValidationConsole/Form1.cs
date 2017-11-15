@@ -44,7 +44,7 @@ namespace DataValidationConsole
                 if (radioCRC32.Checked)
                 {
                     string pattern = "[0-9A-Fa-f]{8}";
-                    if (!Regex.IsMatch(textHash, pattern, RegexOptions.IgnoreCase)) throw new Exception("Wrong CRC32 format");
+                    if (!Regex.IsMatch(textHash, pattern, RegexOptions.IgnoreCase)|| textHash.Length != 8) throw new Exception("Wrong CRC32 format");
                     Crc32 crc = new Crc32();
                     byte[] h = crc.ComputeHash(file);
                     hash = BitConverter.ToString(h);
@@ -54,7 +54,7 @@ namespace DataValidationConsole
                 if (radioMD5.Checked)
                 {
                     string pattern = "[0-9A-Fa-f]{32}";
-                    if (!Regex.IsMatch(textHash, pattern, RegexOptions.IgnoreCase)) throw new Exception("Wrong MD5 format");
+                    if (!Regex.IsMatch(textHash, pattern, RegexOptions.IgnoreCase)|| textHash.Length != 32) throw new Exception("Wrong MD5 format");
                     StreamReader reader = new StreamReader(file);
                     //Reading file
                     String contents = reader.ReadToEnd();

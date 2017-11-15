@@ -1,0 +1,8 @@
+c:\users\nastyagurskaya\documents\visual studio 2015\Projects\DataValidationConsole\DataValidationConsole\obj\Debug\DataValidationConsole.Form1.resources
+c:\users\nastyagurskaya\documents\visual studio 2015\Projects\DataValidationConsole\DataValidationConsole\obj\Debug\DataValidationConsole.csproj.GenerateResource.Cache
+c:\users\nastyagurskaya\documents\visual studio 2015\Projects\DataValidationConsole\DataValidationConsole\bin\Debug\DataValidationConsole.exe.config
+c:\users\nastyagurskaya\documents\visual studio 2015\Projects\DataValidationConsole\DataValidationConsole\bin\Debug\DataValidationConsole.exe
+c:\users\nastyagurskaya\documents\visual studio 2015\Projects\DataValidationConsole\DataValidationConsole\bin\Debug\DataValidationConsole.pdb
+c:\users\nastyagurskaya\documents\visual studio 2015\Projects\DataValidationConsole\DataValidationConsole\obj\Debug\DataValidationConsole.exe
+c:\users\nastyagurskaya\documents\visual studio 2015\Projects\DataValidationConsole\DataValidationConsole\obj\Debug\DataValidationConsole.pdb
+C:\Users\NastyaGurskaya\documents\visual studio 2015\Projects\DataValidationConsole\DataValidationConsole\obj\Debug\DataValidationConsole.csprojResolveAssemblyReference.cache

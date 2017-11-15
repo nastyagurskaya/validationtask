@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,7 +36,8 @@ namespace DataValidationConsole
                     FileStream file = new FileStream(fileName, FileMode.Open, FileAccess.Read);
                     if (format.CompareTo("-crc2") == 0)
                     {
-                        if (argumentHash.Length != 8) throw new Exception("Wrong CRC32 format\n");
+                        string pattern = "[0-9A-Fa-f]{8}";
+                        if (!Regex.IsMatch(argumentHash, pattern, RegexOptions.IgnoreCase)) throw new Exception("Wrong CRC32 format\n");
                         Crc32 crc = new Crc32();
                         byte[] h = crc.ComputeHash(file);
                         hash = BitConverter.ToString(h);
@@ -43,7 +45,8 @@ namespace DataValidationConsole
                     }
                     if (format.CompareTo("-md5") == 0)
                     {
-                        if (argumentHash.Length != 32) throw new Exception("Wrong MD5 format\n");
+                        string pattern = "[0-9A-Fa-f]{32}";
+                        if (!Regex.IsMatch(argumentHash, pattern, RegexOptions.IgnoreCase)) throw new Exception("Wrong MD5 format\n");
                         StreamReader reader = new StreamReader(file);
                         //Reading file
                         String contents = reader.ReadToEnd();

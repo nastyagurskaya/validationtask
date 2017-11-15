@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,13 +36,15 @@ namespace DataValidationConsole
                 String hash="";
                 String textHash = hashTextBox.Text;
                 String filename = fileNameTextBox.Text;
+
                 //Opening file
                 FileStream file = new FileStream(filename, FileMode.Open, FileAccess.Read);
                 
                 //Crc32 option
                 if (radioCRC32.Checked)
                 {
-                    if (textHash.Length != 8) throw new Exception("Wrong CRC32 format");
+                    string pattern = "[0-9A-Fa-f]{8}";
+                    if (!Regex.IsMatch(textHash, pattern, RegexOptions.IgnoreCase)) throw new Exception("Wrong CRC32 format");
                     Crc32 crc = new Crc32();
                     byte[] h = crc.ComputeHash(file);
                     hash = BitConverter.ToString(h);
@@ -50,7 +53,8 @@ namespace DataValidationConsole
                 //MD5 option
                 if (radioMD5.Checked)
                 {
-                    if (textHash.Length != 32) throw new Exception("Wrong MD5 format");
+                    string pattern = "[0-9A-Fa-f]{32}";
+                    if (!Regex.IsMatch(textHash, pattern, RegexOptions.IgnoreCase)) throw new Exception("Wrong MD5 format");
                     StreamReader reader = new StreamReader(file);
                     //Reading file
                     String contents = reader.ReadToEnd();
